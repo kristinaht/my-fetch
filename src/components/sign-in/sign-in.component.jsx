@@ -26,7 +26,7 @@ import './sign-in.styles.scss';
      } catch(error) {
         console.log(error);
      }
-   }
+   };
 
    handleChange = event => {
      const { value, name } = event.target;
@@ -39,6 +39,7 @@ import './sign-in.styles.scss';
       <div className='sign-in'>
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
+        
         <form onSubmit={this.handleSubmit}>
           <FormInput 
             name='email' 

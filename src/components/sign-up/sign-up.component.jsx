@@ -10,18 +10,19 @@ import './sign-up.scss';
 class SignUp extends React.Component {
   constructor() {
     super();
-    this.state={
+
+    this.state= {
       displayName: '',
       email: '',
       password: '',
       confirmPassword: ''
-    }
+    };
   }
 
   handleSubmit = async event => {
     event.preventDefault();
 
-    const { displayName, email, password, confirmPassword } =this.state;
+    const { displayName, email, password, confirmPassword } = this.state;
 
     if(password !== confirmPassword) {
       alert("passwords don't match");
@@ -31,7 +32,7 @@ class SignUp extends React.Component {
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
-      createUserProfileDocument(user, { displayName });
+      await createUserProfileDocument(user, { displayName });
 
       this.setState({
         displayName: '',
@@ -42,7 +43,7 @@ class SignUp extends React.Component {
     } catch(error) {
       console.error(error);
     }
-  }
+  };
 
    handleChange = event => {
      const { value, name } = event.target;

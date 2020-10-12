@@ -3,14 +3,13 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: "AIzaSyCUcRlxcYr5bRLiWTCrSBdYye-SnurDHJ4",
-  authDomain: "my-fetch-db.firebaseapp.com",
-  databaseURL: "https://my-fetch-db.firebaseio.com",
-  projectId: "my-fetch-db",
-  storageBucket: "my-fetch-db.appspot.com",
-  messagingSenderId: "50363109968",
-  appId: "1:50363109968:web:2ad85c905ffb21d2777755",
-  measurementId: "G-G1F1LHERVB"
+  apiKey: "AIzaSyDDklDJoULH5elIB0tsm9bBKS7M5a9Uf0g",
+  authDomain: "my-fetch-app.firebaseapp.com",
+  databaseURL: "https://my-fetch-app.firebaseio.com",
+  projectId: "my-fetch-app",
+  storageBucket: "my-fetch-app.appspot.com",
+  messagingSenderId: "1090680607120",
+  appId: "1:1090680607120:web:223451f2938281591be315"
 };
 
 firebase.initializeApp(config);
