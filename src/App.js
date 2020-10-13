@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -45,17 +45,20 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/shop' component={ShopPage} />
-          <Route exact path='/signin' component={SignInAndSignUpPage} />
+          <Route exact path='/signin' render={() => this.props.currentUser ? (<Redirect to ='/' />) : (<SignInAndSignUpPage />)} />
         </Switch>
       </div>
     );
   }
 }
 
-//dispatch: whatever object you pass is going to be an action object that is passed to all reducers
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
 
+//dispatch: whatever object you pass is going to be an action object that is passed to all reducers
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 //first argument is mapStateToProps, but we don't need it now, so we are gonna pass null as the first argument;mapDispatchToProps is second arg
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
